@@ -1,6 +1,8 @@
 package com.worthtech.interview.spring.test.dto;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "department")
@@ -8,10 +10,19 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull
     private Long departmentId;
+
+    @NotNull
+    @Size(min = 1, max = 20)
     private String departmentName;
+
+    @NotNull
+    @Size(min = 1, max = 50)
     private String departmentAddress;
+
     private String departmentCode;
+
 
     @Override
     public String toString() {
