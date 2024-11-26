@@ -10,7 +10,6 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotNull
     private Long departmentId;
 
     @NotNull
