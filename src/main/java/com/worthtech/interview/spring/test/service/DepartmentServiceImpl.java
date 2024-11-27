@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
@@ -65,5 +66,10 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public void deleteDepartmentById(Long departmentId) {
         departmentRepository.deleteById(departmentId);
+    }
+
+    @Override
+    public Optional<Department> findById(long id) {
+        return Optional.ofNullable(departmentRepository.findById(id).orElse(null));
     }
 }
